@@ -14,7 +14,12 @@ exports.renderCreatePost = (req, res) => {
 exports.getPosts = (req, res) => {
     Post.find({}, "title")
         .populate("userId", "username")
-        .then((posts) => res.render("home", { postArr: posts }))
+        .then((posts) =>
+            res.render("home", {
+                postArr: posts,
+                isLogin: req.session.isLogin ? true : false,
+            })
+        )
         .catch((err) => console.log(err));
 };
 

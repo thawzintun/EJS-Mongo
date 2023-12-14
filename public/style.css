@@ -22,6 +22,15 @@ a {
     text-decoration: none;
     display: block;
 }
+.aTag {
+    background-color: black;
+    color: #fff;
+    padding: 10px 10px;
+    margin: 10px 0;
+    width: fit-content;
+    text-decoration: none;
+    display: block;
+}
 
 form > button {
     background-color: black;
