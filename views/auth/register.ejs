@@ -1,8 +1,8 @@
 <%- include("../includes/head")%>
 <section class="mx-auto">
     <a href="/">Go Back Home</a>
-    <h1 class="title">Login to your account!</h1>
-    <form action="/login" method="POST">
+    <h1 class="title">Register a new account!</h1>
+    <form action="/signup" method="POST">
         <div>
             <label for="email">Enter Email</label>
             <input type="email" name="email" id="email" />
@@ -11,7 +11,7 @@
             <label for="password">Enter Password</label>
             <input type="password" name="password" id="password" />
         </div>
-        <button>Login</button>
+        <button>Create Account</button>
     </form>
 </section>
 <%- include("../includes/foot")%>

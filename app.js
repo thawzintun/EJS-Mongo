@@ -36,13 +36,6 @@ app.use(
     })
 );
 
-app.use((req, res, next) => {
-    User.findById("653020a2da6e3155a9796730").then((user) => {
-        req.user = user;
-        next();
-    });
-});
-
 //Route Define Middleware
 app.use(postRoute);
 app.use("/admin", adminRoute);
@@ -53,15 +46,5 @@ mongoose
     .connect(process.env.MONGODB_URL)
     .then(() => {
         app.listen(8080);
-        User.findOne().then((user) => {
-            return (
-                !user &&
-                User.create({
-                    username: "admin",
-                    email: "admin@gmail.com",
-                    password: "abcdefg",
-                })
-            );
-        });
     })
     .catch((err) => console.log(err));
