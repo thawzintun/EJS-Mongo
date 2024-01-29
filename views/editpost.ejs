@@ -1,8 +1,9 @@
 <%- include("./includes/head")%>
 <section class="mx-auto">
-    <a href="/">Go Back Home</a>
+    <a href="/" class="hrefButton">Go Back Home</a>
     <h1 class="title">Edit your post!</h1>
     <form action="/admin/edit-post/" method="POST">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
         <input type="text" name="id" id="id" value="<%=post._id%>" hidden />
         <div>
             <label for="title">Entere Title</label>

@@ -17,7 +17,6 @@ exports.getPosts = (req, res) => {
         .then((posts) =>
             res.render("home", {
                 postArr: posts,
-                isLogin: req.session.isLogin ? true : false,
             })
         )
         .catch((err) => console.log(err));

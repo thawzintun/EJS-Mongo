@@ -1,8 +1,9 @@
 <%- include("../includes/head")%>
 <section class="mx-auto">
-    <a href="/">Go Back Home</a>
+    <a href="/" class="hrefButton">Go Back Home</a>
     <h1 class="title">Register a new account!</h1>
     <form action="/signup" method="POST">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
         <div>
             <label for="email">Enter Email</label>
             <input type="email" name="email" id="email" />
