@@ -2,16 +2,25 @@
 <section class="mx-auto">
     <a href="/" class="hrefButton">Go Back Home</a>
     <h1 class="title">Login to your account!</h1>
+    <% if(message){ %>
+    <p class="msg-box"><%= message%></p>
+    <%}%>
     <form action="/login" method="POST">
         <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
 
         <div>
             <label for="email">Enter Email</label>
             <input type="email" name="email" id="email" />
+            <% if(emailMessage){ %>
+            <p class="msg-box"><%= emailMessage%></p>
+            <%}%>
         </div>
         <div>
             <label for="password">Enter Password</label>
             <input type="password" name="password" id="password" />
+            <% if(passwordMessage){ %>
+            <p class="msg-box"><%= passwordMessage%></p>
+            <%}%>
         </div>
         <button>Login</button>
     </form>

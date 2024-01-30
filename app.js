@@ -7,6 +7,7 @@ const dotenv = require("dotenv").config();
 const session = require("express-session");
 const mongoStore = require("connect-mongodb-session")(session);
 const csrf = require("csurf");
+const flash = require("connect-flash");
 
 //Server
 const app = express();
@@ -14,7 +15,6 @@ const store = new mongoStore({
     uri: process.env.MONGODB_URI,
     databaseName: "blog",
 });
-const csrfProtection = csrf();
 
 //Engine
 app.set("view engine", "ejs");
@@ -38,7 +38,8 @@ app.use(
     })
 );
 
-app.use(csrfProtection);
+app.use(csrf());
+app.use(flash());
 app.use("/admin", (req, res, next) => {
     if (!req.session.isLogin) {
         return res.redirect("/login");
